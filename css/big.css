@@ -1,0 +1,19 @@
+body {
+  background: #fff;
+}
+.container span {
+  color: #fff;
+}
+.container ul {
+  border: 1px solid #777;
+}
+.container ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid black;
+}
+.container ul li:last-child {
+  border: none;
+}
+.container ul li span {
+  color: black;
+}

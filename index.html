@@ -1,43 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>proxy-模拟双向数据绑定</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="./css/indexAnimation/index.css" rel="stylesheet" type="text/css">
+  <title>Animation</title>
 </head>
 
 <body>
-  <input type="text" v-model="title" />
-  <input type="text" v-model="title" />
-  <span v-bind="title">更新</span>
 </body>
 <script>
-  function View() {
-    let proxy = new Proxy({}, {
-      get(obj, prototype) {
+  var hd = {};
+  console.dir(hd);
 
-      },
-      set(obj, prototy, value) {
-        document.querySelectorAll(`[v-model="${prototy}"]`).forEach(items => {
-          items.value = value
-        });
-        document.querySelectorAll(`[v-bind="${prototy}"]`).forEach(items => {
-          items.innerHTML = value
-        });
-      },
-    });
-    this.init = () => {
-      const els = document.querySelectorAll('[v-model]');
-      els.forEach(items => {
-        items.addEventListener('keyup', function () {
-          proxy[this.getAttribute('v-model')] = this.value;
-        })
-      });
-    }
+  function user() {
+
   }
-  new View().init()
+  console.dir(user);
+  let a = new user()
+  console.dir(a);
+  var s = "get-element-by-id"
+  var f = function (s) {
+
+    return s.replace(/-\w/g, function (x) {
+
+      return x.slice(1).toUpperCase();
+
+    })
+
+  }
+  console.log(f(s))
+
+
+    //String中match方法实现原理
+    ~ function () {
+      function execAll(str = "") {
+        //=>str:要匹配的字符串
+        //第一次进来需要判断是否包含g，不然会陷入死循环reg.exec会一直有值
+        //=>this:RegExp的实例（当前操作正则）
+        //=>ary存储最后所有捕获信息 res存储每一次捕获内容
+        if (!this.global) {
+          return this.exec(str)
+        }
+        let ary = [];
+        let arySmall = [];
+        res = this.exec(str);
+
+        while (res) {
+          //多次匹配下match只能获取大正则内容，小分组匹配信息无法获取，一下代码为完善此项功能
+          let [big, small] = res; //数组解构获取大小分组数据（但match函数本身并不包括此项能容）
+          ary.push(big);
+          arySmall.push(small);
+          res = this.exec(str)
+        }
+        return ary.length === 0 ? null : ary
+
+      }
+      RegExp.prototype.execAll = execAll
+    }()
+
+  let reg = /\d+/g;
 </script>
 
 </html>

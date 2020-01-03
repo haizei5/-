@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>proxy-模拟双向数据绑定</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link href="./css/index.css" rel="stylesheet" type="text/css">
+  <style>
+    input {
+      outline: none
+    }
+
+    .test::after {
+      content: 'c  om';
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .test {
+      color: #fff;
+    }
+
+    #int {
+      border: none
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    ul>li>span {
+      text-shadow: yellow 2px 2px;
+    }
+
+    .text {
+      width: 200px;
+      border: solid 1px #ddd;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+    }
+
+    .headImg {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+    }
+
+    .fl {
+      float: left;
+    }
+
+    .pof {
+      background: #ddd;
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+
+    .poz {
+      width: 20px;
+      height: 20px;
+      background: blue;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .disf {
+      background: #ddd;
+      width: 200px;
+      height: 200px;
+      margin-left: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .disz {
+      width: 20px;
+      height: 20px;
+      background: blue;
+
+    }
+
+    .puf {
+      background: #ddd;
+      width: 200px;
+      height: 200px;
+      margin-left: 10px;
+    }
+
+    .puz {
+      width: 20px;
+      height: 20px;
+      background: blue;
+      margin: 90px auto;
+    }
+
+    .sticky {
+      width: 200px;
+      height: 200px;
+      border: solid 2px #ddd;
+      margin-left: 10px;
+      overflow-y: scroll;
+      background: #ddd;
+    }
+
+    .sticky h2 {
+      position: sticky;
+      top: 0;
+      background: red;
+      padding: 0;
+      margin: 0
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="text" title="可以声明自定义字段，如果客户端不存在将下载该字体，使用方式也是通过 font-family 引入。">
+      <img class="headImg" src="./images/1.JPG" />可以声明自定义字段，如果客户端不存在将下载该字体，使用方式也是通过 font-family 引入。
+    </div>
+    <div class="pof fl">
+      <span>定位居中</span>
+      <div class="poz"></div>
+    </div>
+    <div class="disf fl">
+      <div class="disz"></div>
+    </div>
+    <div class="puf fl">
+      <div class="puz"></div>
+    </div>
+    <div>
+      <input type="text" id="int">
+      <span class="test"></span>
+    </div>
+    <div class="pof fl">
+      <div class="poz" style="background: red;"></div>
+      <div class="poz"></div>
+    </div>
+    <div class="sticky fl">
+      <h2>黏性定位</h2>
+      <article>
+        可以声明自定义字段，如果客户端不存在将下载该字体，使用方式也是通过 font-family 引入。
+        可以声明自定义字段，如果客户端不存在将下载该字体，使用方式也是通过 font-family 引入。
+        可以声明自定义字段，如果客户端不存在将下载该字体，使用方式也是通过 font-family 引入。
+        可以声明自定义字段，如果客户端不存在将下载该字体，使用方式也是通过 font-family 引入。
+        可以声明自定义字段，如果客户端不存在将下载该字体，使用方式也是通过 font-family 引入。
+        可以声明自定义字段，如果客户端不存在将下载该字体，使用方式也是通过 font-family 引入。
+      </article>
+    </div>
+    <ul>
+      <li><span>yinying</span></li>
+      <li><span>2</span></li>
+      <li><span>3</span></li>
+    </ul>
+  </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script>
+  $('.test').click(function () {
+    alert('提交')
+  })
+</script>
+
+</html>
